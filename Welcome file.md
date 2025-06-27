@@ -73,7 +73,8 @@ file2 = '.\data\data_surival.txt'
 RNA_dataframe = pd.read_csv(file1, sep='\t', index_col=0)
 RNA_dataframe = RNA_dataframe.T
 survival_dataframe = pd.read_csv(file2, sep='\t', index_col=0)
-survival_dataframe = survival_dataframe.dropna(thresh=len(survival_dataframe)*0.8, axis=1)
+survival_dataframe = survival_dataframe.dropna(
+                     thresh=len(survival_dataframe)*0.8，axis=1)
 ```
 - **预期结果**：RNAseq数据转置为样本行格式，生存数据过滤缺失值超过20%的列。
 
@@ -114,7 +115,9 @@ print(std_expression.head())
 ```python
 high_expression_genes = RNA_dataframe.columns[(RNA_dataframe > 0.2).sum() > 187*0.8]
 high_expression_genes = high_expression_genes.tolist()
-high_expression_genes_sorted = sorted(high_expression_genes, key=lambda gene: mean_expression[gene], reverse=True)
+high_expression_genes_sorted = sorted(high_expression_genes, 
+									key=lambda gene: mean_expression[gene],
+									reverse=True)
 print("高表达基因数量：", len(high_expression_genes))
 print("前5个高表达基因：", end='')
 for gene in high_expression_genes[:5]:
@@ -131,11 +134,13 @@ survival_time = 'DFI.time'
 correlation_results = []
 for gene in high_expression_genes_sorted:
     if gene in merged_dataframe.columns:
-        correlation = merged_dataframe[[gene, survival_time]].corr().iloc[0, 1]
+        correlation = merged_dataframe[[gene, survival_time]]
+										      .corr().iloc[0, 1]
         correlation_results.append((gene, correlation))
-correlation_df = pd.DataFrame(correlation_results, columns=['基因', '相关系数'])
+correlation_df = pd.DataFrame(correlation_results,columns=['基因', '相关系数'])
 correlation_df['相关系数绝对值'] = correlation_df['相关系数'].abs()
-correlation_df = correlation_df.sort_values(by='相关系数绝对值', ascending=False).drop(columns=['相关系数绝对值'])
+correlation_df = correlation_df.sort_values(by='相关系数绝对值', 
+				ascending=False).drop(columns=['相关系数绝对值'])
 print("与DFI.time相关性最强的前10个基因：")
 print(correlation_df.head(10))
 ```
@@ -150,7 +155,8 @@ top_genes = correlation_df['基因'].head(5)
 plt.figure(figsize=(15, 5))
 for i, gene in enumerate(top_genes):
     plt.subplot(1, 5, i + 1)
-    plt.scatter(merged_dataframe[gene], merged_dataframe[survival_time], alpha=0.5)
+    plt.scatter(merged_dataframe[gene],
+				merged_dataframe[survival_time], alpha=0.5)
     plt.title(f'{gene}与{survival_time}')
     plt.xlabel(gene)
     plt.ylabel(survival_time)
@@ -169,7 +175,7 @@ plt.savefig('.\py_output\基因与生存时间相关性散点图.png')
 ```r
 file1 <- "./data/data_RNAseq.txt"
 file2 <- "./data/data_surival.txt"
-rna_data <- read.table(file1, header=TRUE, sep="\t", row.names=1, check.names=FALSE)
+rna_data <- read.table(file1, header=TRUE,sep="\t",row.names=1, check.names=FALSE)
 surv_data <- read.table(file2, header=TRUE, sep="\t", row.names=1, check.names=FALSE)
 rna_data <- t(rna_data)
 rna_data <- as.data.frame(rna_data)
@@ -293,5 +299,6 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI1NDQ3MTA5LDIyMDY3MTY5N119
+eyJoaXN0b3J5IjpbMzQ1NzE3MjU3LDcyNTQ0NzEwOSwyMjA2Nz
+E2OTddfQ==
 -->
