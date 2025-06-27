@@ -175,6 +175,7 @@ rna_data <- t(rna_data)
 rna_data <- as.data.frame(rna_data)
 ```
 - **预期结果**：成功读取数据并转置，样本作为行名，基因作为列名。
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/LFt2erNnbzQYdhmn.png)
 
 #### 知识点2：样本交集匹配
 - **题目**：匹配RNAseq与生存数据的样本ID
@@ -296,5 +297,5 @@ abline(0, 1, col="red", lty=2)
 
 本报告严格遵循作业要求，未抄袭他人成果，所有代码基于自主设计与实现，确保学术诚信。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMxOTc4NDksMjIwNjcxNjk3XX0=
+eyJoaXN0b3J5IjpbNzE3MzMxMjM2LDIyMDY3MTY5N119
 -->
