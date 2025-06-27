@@ -275,11 +275,10 @@ abline(0, 1, col="red", lty=2)
 ```
 - **预期结果**：KS检验输出p值（若p<0.05则拒绝分布一致的原假设），QQ图展示两变量分位数对应关系。
 ![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/xzn2vxJh0NMKb0Lf.png)
-
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/a9bta0OBTEkDIgWp.png)
 ## 三、语言差异与互补优势分析
 ### （一）Shell与脚本语言的定位差异
-- **Shell**：擅长文件系统操作（如目录创建、文件移动、批量重命名）和流程自动化，适合数据预处理阶段的文件管理，但缺乏复杂数据处理与统计分析能力。
-- **Python/R**：专注于数据处理与分析，Shell可作为前置步骤批量处理原始文件，三者结合形成“文件管理→数据处理→统计分析”的完整工作流。
+Shell语言更适合文件系统操作（如目录创建、文件移动、批量重命名）和流程自动化，适合数据预处理阶段的文件管理，但缺乏复杂数据处理与统计分析能力。而Python/R语言适合进行数据处理与分析，Shell可作为前置步骤批量处理原始文件，三者结合形成“文件管理→数据处理→统计分析”的完整工作流。
 
 ### （二）Python与R语言的优势互补
 - **Python**：
@@ -303,5 +302,5 @@ abline(0, 1, col="red", lty=2)
 
 本报告严格遵循作业要求，未抄袭他人成果，所有代码基于自主设计与实现，确保学术诚信。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4ODg1MTcxNywyMjA2NzE2OTddfQ==
+eyJoaXN0b3J5IjpbOTU5MzE4MzA1LDIyMDY3MTY5N119
 -->
