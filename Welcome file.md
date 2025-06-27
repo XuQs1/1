@@ -188,6 +188,7 @@ surv_data <- surv_data[common_samples, ]
 cat("成功匹配", length(common_samples), "个样本\n")
 ```
 - **预期结果**：输出匹配的样本数量，确保后续分析基于相同样本集。
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/x4YxaJyl2eh140WK.png)
 
 #### 知识点3：QQ图正态性检验
 - **题目**：随机基因表达分布的QQ图分析
@@ -208,6 +209,7 @@ qq_plot <- ggplot(rna_long, aes(sample=Expression, color=Gene)) +
 print(qq_plot)
 ```
 - **预期结果**：生成QQ图，若点分布接近对角线则表明数据近似正态分布。
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/NHLVUFnYgssTZPIL.png)
 
 #### 知识点4：主成分分析（PCA）
 - **题目**：基因表达数据的PCA降维分析
@@ -233,6 +235,7 @@ pca_plot <- ggplot(pca_data, aes(x=PC1, y=PC2, label=Sample)) +
 print(pca_plot)
 ```
 - **预期结果**：PCA散点图展示样本在主成分空间的分布，横轴和纵轴标注方差解释率。
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/fwN60klUXTx1ARRj.png)
 
 #### 知识点5：热图可视化高变异基因
 - **题目**：前10高变异基因的表达热图绘制
@@ -297,5 +300,5 @@ abline(0, 1, col="red", lty=2)
 
 本报告严格遵循作业要求，未抄袭他人成果，所有代码基于自主设计与实现，确保学术诚信。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE3MzMxMjM2LDIyMDY3MTY5N119
+eyJoaXN0b3J5IjpbLTIyNDc2ODk5LDIyMDY3MTY5N119
 -->
