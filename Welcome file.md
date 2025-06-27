@@ -106,6 +106,7 @@ print("基因表达标准差前5项：")
 print(std_expression.head())
 ```
 - **预期结果**：输出基因表达的均值、中位数和标准差，反映数据集中趋势与离散程度。
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/kMm5Brnq5BBOX3fp.png)
 
 #### 题目4：筛选在多数样本中高表达的基因
 - **目的**：聚焦于具有生物学意义的活跃基因
@@ -120,6 +121,7 @@ for gene in high_expression_genes[:5]:
     print(f"{gene} ", end='')
 ```
 - **预期结果**：输出高表达基因数量及前5个基因名称，基于在80%以上样本中表达值>0.2的标准。
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/Fqp6zsrWtoaTCyNU.png)
 
 #### 题目5：计算高表达基因与生存时间的相关性
 - **目的**：探索基因表达与临床结局的潜在关联
@@ -138,6 +140,7 @@ print("与DFI.time相关性最强的前10个基因：")
 print(correlation_df.head(10))
 ```
 - **预期结果**：输出与DFI生存时间相关性最强的前10个基因及其相关系数，绝对值越大关联越强。
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/6sZvJsKLM33I4vqa.png)
 
 #### 题目6：绘制高相关基因与生存时间的散点图
 - **目的**：直观展示基因表达与生存时间的关系模式
@@ -155,7 +158,8 @@ plt.tight_layout()
 plt.show()
 plt.savefig('.\py_output\基因与生存时间相关性散点图.png')
 ```
-- **预期结果**：生成5个子图，每个子图展示一个基因与生存时间的散点分布，直观反映正相关或负相关趋势。
+- **预期结果**：生成5个子图，每个子图展示一个基因与生存时间的散点分布，直观反映正相关或负相关趋势。（所用数据的相关性实在太差）
+![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/eiKXq73TJFDYdWrB.png)
 
 ### （三）R语言编程练习
 #### 知识点1：数据读取与转置
@@ -292,5 +296,5 @@ abline(0, 1, col="red", lty=2)
 
 本报告严格遵循作业要求，未抄袭他人成果，所有代码基于自主设计与实现，确保学术诚信。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIwNjcxNjk3XX0=
+eyJoaXN0b3J5IjpbMzMxOTc4NDksMjIwNjcxNjk3XX0=
 -->
