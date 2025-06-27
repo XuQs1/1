@@ -1,4 +1,4 @@
-# TCGA数据库数据探索与多语言编程实践报告
+# TCGA数据库数据探索与多语言编程实践
 ### 学号：2351909 姓名：徐其升
 
 ## 一、目标概述
@@ -299,6 +299,6 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1NzE3MjU3LDcyNTQ0NzEwOSwyMjA2Nz
-E2OTddfQ==
+eyJoaXN0b3J5IjpbMTM1NTU3MTU2NiwzNDU3MTcyNTcsNzI1ND
+Q3MTA5LDIyMDY3MTY5N119
 -->
