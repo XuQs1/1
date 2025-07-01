@@ -260,8 +260,8 @@ melted <- data.frame(
   Value=as.vector(t(ntop10)))
 heatmap_plot <- ggplot(melted, aes(x=Sample, y=Gene, fill=Value))+
   geom_tile() +
-  scale_fill_gradient2(low="blue", high="red", mid="white", midpoint=0) +
-  labs(title="前10高变异基因表达热图", x="基因", y="样本") +
+  scale_fill_gradient2(low="blue", high="red", mid="white", midpoint=0)+
+  labs(title="前10高变异基因表达热图", x="基因", y="样本")+
   theme_minimal() + theme(axis.text.y=element_blank(), axis.ticks.y=element_blank())
 print(heatmap_plot)
 ```
@@ -300,7 +300,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg0Nzg3NDkwLC05NTMwNTY1OTcsLTMyOT
+eyJoaXN0b3J5IjpbMzA0MDkwMDU4LC05NTMwNTY1OTcsLTMyOT
 cxNjM3OSwtMTQ3MjEyNjk4NiwxMzU1NTcxNTY2LDM0NTcxNzI1
 Nyw3MjU0NDcxMDksMjIwNjcxNjk3XX0=
 -->
