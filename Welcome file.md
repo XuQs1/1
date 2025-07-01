@@ -254,13 +254,11 @@ normalized_rna_data <- scale(rna_data)
 gene_var <- apply(normalized_rna_data, 2, var)
 top10_genes <- names(sort(gene_var, decreasing=TRUE)[1:10])
 top10 <- normalized_rna_data[, top10_genes]
-melted_rna_data <- data.frame(
-  Gene=
-	  rep(row.names(top10), each=ncol(top10)),
-  Sample=rep(colnames(normalized_top10), times=nrow(normalized_top10)),
-  Value=as.vector(t(normalized_top10))
-)
-heatmap_plot <- ggplot(melted_rna_data, aes(x=Sample, y=Gene, fill=Value)) +
+melted <- data.frame(
+  Gene=rep(row.names(top10), each=ncol(top10)),
+  Sample=rep(colnames(top10), times=nrow(top10)),
+  Value=as.vector(t(ntop10)))
+heatmap_plot <- ggplot(melted, aes(x=Sample, y=Gene, fill=Value))+
   geom_tile() +
   scale_fill_gradient2(low="blue", high="red", mid="white", midpoint=0) +
   labs(title="前10高变异基因表达热图", x="基因", y="样本") +
@@ -302,7 +300,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjQ2OTM1OTAsLTk1MzA1NjU5NywtMz
-I5NzE2Mzc5LC0xNDcyMTI2OTg2LDEzNTU1NzE1NjYsMzQ1NzE3
-MjU3LDcyNTQ0NzEwOSwyMjA2NzE2OTddfQ==
+eyJoaXN0b3J5IjpbNjg0Nzg3NDkwLC05NTMwNTY1OTcsLTMyOT
+cxNjM3OSwtMTQ3MjEyNjk4NiwxMzU1NTcxNTY2LDM0NTcxNzI1
+Nyw3MjU0NDcxMDksMjIwNjcxNjk3XX0=
 -->
