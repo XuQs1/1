@@ -130,17 +130,15 @@ for gene in high_expression[:5]:
 - **目的**：探索基因表达与临床结局的潜在关联
 - **知识点**：`corr()`方法、排序筛选强相关基因
 ```python
-survival_time = 'DFI.time'
+t = 'DFI.time'
 results = []
 for gene in high_expression_genes_sorted:
     if gene in merged_dataframe.columns:
-        correlation = merged_dataframe[[gene, survival_time]]
-										      .corr().iloc[0, 1]
-        correlation_results.append((gene, correlation))
-correlation_df = pd.DataFrame(correlation_results,columns=['基因', '相关系数'])
-correlation_df['相关系数绝对值'] = correlation_df['相关系数'].abs()
-correlation_df = correlation_df.sort_values(by='相关系数绝对值', 
-				ascending=False).drop(columns=['相关系数绝对值'])
+        entry = merged_dataframe[[gene, t]].corr().iloc[0, 1]
+        results.append((gene, entry))
+cor = pd.DataFrame(results,columns=['基因', 'cor'])
+cor['相关系'] = cor['cor'].abs()
+cor = cor.sort_values(by='相关系数绝对值', ascending=False).drop(columns=['相关系数绝对值'])
 print("与DFI.time相关性最强的前10个基因：")
 print(correlation_df.head(10))
 ```
@@ -299,7 +297,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0Mjg0NzcwOSwtMTQ3MjEyNjk4NiwxMz
-U1NTcxNTY2LDM0NTcxNzI1Nyw3MjU0NDcxMDksMjIwNjcxNjk3
-XX0=
+eyJoaXN0b3J5IjpbODk0NjIxNjU4LC0xNDcyMTI2OTg2LDEzNT
+U1NzE1NjYsMzQ1NzE3MjU3LDcyNTQ0NzEwOSwyMjA2NzE2OTdd
+fQ==
 -->
