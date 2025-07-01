@@ -72,8 +72,8 @@ file1 = '.\data\data_RNAseq.txt'
 file2 = '.\data\data_surival.txt'
 RNA_dataframe = pd.read_csv(file1, sep='\t', index_col=0)
 RNA_dataframe = RNA_dataframe.T
-survival_dataframe = pd.read_csv(file2, sep='\t', index_col=0)
-survival_dataframe = survival_dataframe.dropna(
+survival= pd.read_csv(file2, sep='\t', index_col=0)
+survival = survival_dataframe.dropna(
                      thresh=len(survival_dataframe)*0.8，axis=1)
 ```
 - **预期结果**：RNAseq数据转置为样本行格式，生存数据过滤缺失值超过20%的列。
@@ -82,10 +82,10 @@ survival_dataframe = survival_dataframe.dropna(
 - **目的**：确保分析基于相同样本集，整合表达与临床数据
 - **知识点**：`index.intersection`获取公共样本、`pd.concat`合并数据框
 ```python
-common_samples = RNA_dataframe.index.intersection(survival_dataframe.index)
+common_samples = RNA_dataframe.index.intersection(survival.index)
 RNA_dataframe = RNA_dataframe.loc[common_samples]
-survival_dataframe = survival_dataframe.loc[common_samples]
-merged_dataframe = pd.concat([RNA_dataframe, survival_dataframe], axis=1)
+survival = survival_dataframe.loc[common_samples]
+merged_dataframe = pd.concat([RNA_dataframe, survival], axis=1)
 print("合并后数据前5行：")
 print(merged_dataframe.head())
 ```
@@ -299,6 +299,6 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NTU3MTU2NiwzNDU3MTcyNTcsNzI1ND
-Q3MTA5LDIyMDY3MTY5N119
+eyJoaXN0b3J5IjpbLTE0NzIxMjY5ODYsMTM1NTU3MTU2NiwzND
+U3MTcyNTcsNzI1NDQ3MTA5LDIyMDY3MTY5N119
 -->
