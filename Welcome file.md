@@ -253,9 +253,10 @@ print(pca_plot)
 normalized_rna_data <- scale(rna_data)
 gene_var <- apply(normalized_rna_data, 2, var)
 top10_genes <- names(sort(gene_var, decreasing=TRUE)[1:10])
-normalized_top10 <- normalized_rna_data[, top10_genes]
+top10 <- normalized_rna_data[, top10_genes]
 melted_rna_data <- data.frame(
-  Gene=rep(row.names(normalized_top10), each=ncol(normalized_top10)),
+  Gene=
+	  rep(row.names(top10), each=ncol(top10)),
   Sample=rep(colnames(normalized_top10), times=nrow(normalized_top10)),
   Value=as.vector(t(normalized_top10))
 )
@@ -301,7 +302,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk5OTUyMjg4LC05NTMwNTY1OTcsLTMyOT
-cxNjM3OSwtMTQ3MjEyNjk4NiwxMzU1NTcxNTY2LDM0NTcxNzI1
-Nyw3MjU0NDcxMDksMjIwNjcxNjk3XX0=
+eyJoaXN0b3J5IjpbLTExMjQ2OTM1OTAsLTk1MzA1NjU5NywtMz
+I5NzE2Mzc5LC0xNDcyMTI2OTg2LDEzNTU1NzE1NjYsMzQ1NzE3
+MjU3LDcyNTQ0NzEwOSwyMjA2NzE2OTddfQ==
 -->
