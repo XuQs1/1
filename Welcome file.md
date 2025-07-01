@@ -96,15 +96,15 @@ print(merged_dataframe.head())
 - **目的**：探索基因表达的整体分布特征
 - **知识点**：`mean()`、`median()`、`std()`方法
 ```python
-mean_expression = RNA_dataframe.mean()
-median_expression = RNA_dataframe.median()
-std_expression = RNA_dataframe.std()
+mean_e = RNA_dataframe.mean()
+median_e = RNA_dataframe.median()
+std_e = RNA_dataframe.std()
 print("基因表达均值前5项：")
-print(mean_expression.head())
+print(mean_e.head())
 print("基因表达中位数前5项：")
-print(median_expression.head())
+print(median_e.head())
 print("基因表达标准差前5项：")
-print(std_expression.head())
+print(std_e.head())
 ```
 - **预期结果**：输出基因表达的均值、中位数和标准差，反映数据集中趋势与离散程度。
 ![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/kMm5Brnq5BBOX3fp.png)
@@ -113,14 +113,14 @@ print(std_expression.head())
 - **目的**：聚焦于具有生物学意义的活跃基因
 - **知识点**：布尔索引、`sum()`计数、排序
 ```python
-high_expression_genes = RNA_dataframe.columns[(RNA_dataframe > 0.2).sum() > 187*0.8]
-high_expression_genes = high_expression_genes.tolist()
-high_expression_genes_sorted = sorted(high_expression_genes, 
-									key=lambda gene: mean_expression[gene],
+high_expression = RNA_dataframe.columns[(RNA_dataframe > 0.2).sum() > 187*0.8]
+high_expression = high_expression.tolist()
+high_expression_sorted = sorted(high_expression, 
+									key=lambda gene: mean_e[gene],
 									reverse=True)
-print("高表达基因数量：", len(high_expression_genes))
+print("高表达基因数量：", len(high_expression))
 print("前5个高表达基因：", end='')
-for gene in high_expression_genes[:5]:
+for gene in high_expression[:5]:
     print(f"{gene} ", end='')
 ```
 - **预期结果**：输出高表达基因数量及前5个基因名称，基于在80%以上样本中表达值>0.2的标准。
@@ -131,7 +131,7 @@ for gene in high_expression_genes[:5]:
 - **知识点**：`corr()`方法、排序筛选强相关基因
 ```python
 survival_time = 'DFI.time'
-correlation_results = []
+results = []
 for gene in high_expression_genes_sorted:
     if gene in merged_dataframe.columns:
         correlation = merged_dataframe[[gene, survival_time]]
@@ -299,6 +299,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzIxMjY5ODYsMTM1NTU3MTU2NiwzND
-U3MTcyNTcsNzI1NDQ3MTA5LDIyMDY3MTY5N119
+eyJoaXN0b3J5IjpbMTA0Mjg0NzcwOSwtMTQ3MjEyNjk4NiwxMz
+U1NTcxNTY2LDM0NTcxNzI1Nyw3MjU0NDcxMDksMjIwNjcxNjk3
+XX0=
 -->
