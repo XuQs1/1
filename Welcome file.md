@@ -166,8 +166,7 @@ plt.savefig('.\py_output\基因与生存时间相关性散点图.png')
 ![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/eiKXq73TJFDYdWrB.png)
 
 ### （三）R语言编程练习
-#### 知识点1：数据读取与转置
-- **题目**：读取TCGA RNA测序与生存数据并转置
+#### 题目1：读取TCGA RNA测序与生存数据并转置
 - **目的**：将基因表达数据转换为样本行格式，便于后续分析
 - **知识点**：`read.table`函数、`t()`转置函数
 ```r
@@ -181,8 +180,7 @@ rna_data <- as.data.frame(rna_data)
 - **预期结果**：成功读取数据并转置，样本作为行名，基因作为列名。
 ![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/LFt2erNnbzQYdhmn.png)
 
-#### 知识点2：样本交集匹配
-- **题目**：匹配RNAseq与生存数据的样本ID
+#### 题目2：匹配RNAseq与生存数据的样本ID
 - **目的**：确保分析样本一致性，避免数据错位
 - **知识点**：`intersect`函数、索引筛选
 ```r
@@ -194,8 +192,7 @@ cat("成功匹配", length(common_samples), "个样本\n")
 - **预期结果**：输出匹配的样本数量，确保后续分析基于相同样本集。
 ![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/x4YxaJyl2eh140WK.png)
 
-#### 知识点3：QQ图正态性检验
-- **题目**：随机基因表达分布的QQ图分析
+#### 题目3：绘制随机五个基因表达情况QQ图正态性检验
 - **目的**：检验基因表达值是否符合正态分布
 - **知识点**：`ggplot2`绘图、`stat_qq`函数、`pivot_longer`数据长格式转换
 ```r
@@ -216,8 +213,7 @@ print(qq_plot)
 - **预期结果**：生成QQ图，若点分布接近对角线则表明数据近似正态分布。
 ![输入图片说明](https://raw.githubusercontent.com/XuQs1/1/master/imgs/2025-06-28/NHLVUFnYgssTZPIL.png)
 
-#### 知识点4：基因表达数据的降维分析主成分分析（PCA）
-- **题目**：
+#### 题目4：对基因表达数据的进行降维分析（PCA）
 - **目的**：揭示数据主要变异来源，识别样本分组特征
 - **知识点**：`prcomp`函数、方差贡献率计算、二维可视化
 ```r
@@ -299,7 +295,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4OTMxMDkzMCwtOTUzMDU2NTk3LC0zMj
+eyJoaXN0b3J5IjpbMTAzNjUzNDg0NCwtOTUzMDU2NTk3LC0zMj
 k3MTYzNzksLTE0NzIxMjY5ODYsMTM1NTU3MTU2NiwzNDU3MTcy
 NTcsNzI1NDQ3MTA5LDIyMDY3MTY5N119
 -->
