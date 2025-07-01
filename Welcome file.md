@@ -229,13 +229,16 @@ if(length(near_zero_var) > 0) {
   rna_data_filtered <- rna_data_numeric
 }
 rna_data_std <- scale(rna_data_filtered)
-pca_result <- prcomp(rna_data_std, scale. = FALSE)
-pca_data <- data.frame(PC1=pca_result$x[,1], PC2=pca_result$x[,2], Sample=rownames(pca_result$x))
-pca_plot <- ggplot(pca_data, aes(x=PC1, y=PC2, label=Sample)) +
+result <- prcomp(rna_data_std, scale. = FALSE)
+data <- data.frame(PC1=result$x[,1], PC2=result$x[,2],
+	Sample=rownames(result$x))
+pca_plot <- ggplot(_data, aes(x=PC1, y=PC2, label=Sample)) +
   geom_point(size=3, alpha=0.7) + 
   labs(title="基因表达数据的主成分分析",
-       x=paste("PC1(方差解释率:", round(summary(pca_result)$importance[2,1]*100,1), "%)"),
-       y=paste("PC2(方差解释率:", round(summary(pca_result)$importance[2,2]*100,1), "%)")) +
+       x=paste("PC1(方差解释率:", 
+	       round(summary(result)$importance[2,1]*100,1), "%)"),
+       y=paste("PC2(方差解释率:", 
+	       round(summary(result)$importance[2,2]*100,1), "%)")) +
   theme_minimal() + theme(axis.text=element_text(size=8))
 print(pca_plot)
 ```
@@ -298,7 +301,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1MzA1NjU5NywtMzI5NzE2Mzc5LC0xND
-cyMTI2OTg2LDEzNTU1NzE1NjYsMzQ1NzE3MjU3LDcyNTQ0NzEw
-OSwyMjA2NzE2OTddfQ==
+eyJoaXN0b3J5IjpbNTk5OTUyMjg4LC05NTMwNTY1OTcsLTMyOT
+cxNjM3OSwtMTQ3MjEyNjk4NiwxMzU1NTcxNTY2LDM0NTcxNzI1
+Nyw3MjU0NDcxMDksMjIwNjcxNjk3XX0=
 -->
