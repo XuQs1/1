@@ -173,8 +173,8 @@ plt.savefig('.\py_output\基因与生存时间相关性散点图.png')
 ```r
 file1 <- "./data/data_RNAseq.txt"
 file2 <- "./data/data_surival.txt"
-rna_data <- read.table(file1, header=TRUE,sep="\t",row.names=1, check.names=FALSE)
-surv_data <- read.table(file2, header=TRUE, sep="\t", row.names=1, check.names=FALSE)
+rna_data <- read.table(file1, header=TRUE,sep="\t",row.names=1)
+surv_data <- read.table(file2, header=TRUE, sep="\t", row.names=1)
 rna_data <- t(rna_data)
 rna_data <- as.data.frame(rna_data)
 ```
@@ -205,7 +205,8 @@ rna_data$Sample <- rownames(rna_data)
 set.seed(2351909)
 all_genes <- colnames(rna_data)[!colnames(rna_data) %in% "Sample"]
 random_genes <- sample(all_genes, 5)
-rna_long <- rna_data %>% pivot_longer(cols = all_of(random_genes), names_to="Gene", values_to="Expression")
+rna_long <- rna_data %>%
+ pivot_longer(cols = all_of(random_genes), names_to="Gene", values_to="Expression")
 qq_plot <- ggplot(rna_long, aes(sample=Expression, color=Gene)) + 
   stat_qq() + facet_wrap(~Gene, scales="free") + 
   theme_minimal() + theme(legend.position="none") +
@@ -297,7 +298,7 @@ Shell语言更适合文件系统操作（如目录创建、文件移动、批量
 3. **可视化成果**：生成QQ图、PCA散点图、热图及相关性散点图，直观展示基因表达特征与生存数据关联；
 4.  **不足之处**：所选用的数据集比较简单，且临床数据的相关性不强，简单的数据处理手段可能无法得到更深入且全面的信息。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyOTcxNjM3OSwtMTQ3MjEyNjk4NiwxMz
-U1NTcxNTY2LDM0NTcxNzI1Nyw3MjU0NDcxMDksMjIwNjcxNjk3
-XX0=
+eyJoaXN0b3J5IjpbMTM5NzE3ODYxNSwtMzI5NzE2Mzc5LC0xND
+cyMTI2OTg2LDEzNTU1NzE1NjYsMzQ1NzE3MjU3LDcyNTQ0NzEw
+OSwyMjA2NzE2OTddfQ==
 -->
